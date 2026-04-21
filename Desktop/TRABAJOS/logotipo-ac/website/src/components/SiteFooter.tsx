@@ -5,10 +5,9 @@ export default function SiteFooter() {
     <footer className="footer">
       <div className="footer-inner">
 
-        {/* Left: logo placeholder */}
-        <div className="footer-logo" aria-label="Alfa Corporativo">
-          <span className="footer-logo-dot" aria-hidden="true" />
-          <span className="footer-logo-text">ALFA</span>
+        {/* Left: logo */}
+        <div className="footer-logo">
+          <img src="/logo/logo-principal-horizontal.svg" alt="Logo Alfa Corporativo" className="h-10 w-auto" />
         </div>
 
         {/* Center: company name */}

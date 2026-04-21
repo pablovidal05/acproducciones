@@ -5,21 +5,21 @@ import React from "react";
 const etapas = [
   {
     numero: "01",
-    nombre: "Reuniones Iniciales",
+    nombre: "Reuniones Introductorias",
     subtexto:
-      "Escuchamos tu visión, objetivos y presupuesto para diseñar la estrategia correcta.",
+      "Conocemos las necesidades del cliente a través de reuniones iniciales donde analizamos los objetivos del evento, el público objetivo y el tipo de experiencia que se desea crear.",
   },
   {
     numero: "02",
-    nombre: "Preproducción",
+    nombre: "Creación de propuestas",
     subtexto:
-      "Planificamos cada detalle: concepto, logística, proveedores y cronograma.",
+      "Nuestro equipo desarrolla una propuesta estratégica y creativa, diseñando una experiencia alineada con la identidad de la marca y los objetivos del evento.",
   },
   {
     numero: "03",
-    nombre: "Producción en Terreno",
+    nombre: "Producción y ejecución",
     subtexto:
-      "Ejecutamos con precisión. Nuestro equipo multidisciplinario se encarga de todo el día del evento.",
+      "Planificamos y coordinamos cada detalle del evento para asegurar una ejecución impecable, garantizando una experiencia fluida y memorable.",
   },
 ];
 

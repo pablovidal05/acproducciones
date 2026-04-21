@@ -1,14 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 type Category = "todos" | "corporativo" | "marca";
 
 interface GaleriaItem {
   id: string;
   titulo: string;
+  bajada?: string;
+  /** Descripción extensa con bullets. Primer elemento = párrafo intro, resto = items ✔️ */
+  descripcion?: { intro: string; bullets: string[] };
   categoria: Exclude<Category, "todos">;
   imagen: string;
+  /** Imágenes extra para el carrusel (además de imagen principal) */
+  imagenesExtra?: string[];
   /** CSS grid span: "tall" = 2 rows, "wide" = 2 cols, "normal" = 1×1 */
   span?: "tall" | "wide" | "normal";
 }
@@ -16,59 +21,95 @@ interface GaleriaItem {
 const items: GaleriaItem[] = [
   {
     id: "gala-2024",
-    titulo: "Gala Anual 2024",
+    titulo: "CPT Ceremonia años de servicio",
+    bajada: "Ceremonia de reconocimiento a los colaboradores de CPT, una noche de gala que celebró años de servicio, trayectoria y logros dentro de la compañía.",
+    descripcion: {
+      intro: "Desde la planificación hasta la última canción de la fiesta, nuestra productora estuvo a cargo de la producción integral del evento:",
+      bullets: [
+        "Organización y coordinación general",
+        "Cóctel de recepción y cena",
+        "Anfitrionas y acreditación",
+        "Escenario, pista LED, iluminación y audio",
+        "Pantalla LED de 20x3 metros que transformó por completo el salón",
+        "Sectores de fotos con fondo de prensa y \"paparazzi cam\"",
+        "Producción de la ceremonia y entrega de reconocimientos",
+        "Intervención artística y gran cierre con banda tributo y DJ",
+      ],
+    },
     categoria: "corporativo",
-    imagen: "/images/galeria_gala_corporativa.jpg",
+    imagen: "/images/CPT-01.jpg",
+    imagenesExtra: ["/images/CPT-02.jpg", "/images/CPT-03.jpg"],
     span: "normal",
   },
   {
     id: "conferencia-liderazgo",
-    titulo: "Conferencia Liderazgo",
+    titulo: "EPYSA Día Marcopolo Pto Montt",
+    bajada: "Diseñamos y ejecutamos una experiencia 360° en el marco del Día Marcopolo, donde EPYSA Buses reunió a sus clientes en una jornada enfocada en generar conexiones, fortalecer relaciones y potenciar oportunidades de negocio.",
+    descripcion: {
+      intro: "Epysa Buses",
+      bullets: [
+        "Diseñamos y ejecutamos una experiencia 360° en el marco del Día Marcopolo, donde EPYSA Buses reunió a sus clientes en una jornada enfocada en generar conexiones, fortalecer relaciones y potenciar oportunidades de negocio.",
+        "Creamos un espacio pensado en cada detalle: montaje, ambientación y una propuesta gastronómica de alto nivel, con bocados y un asado como eje central de la experiencia.",
+        "Nos encargamos de toda la producción técnica y audiovisual, la coordinación integral del evento y la entrega de regalos corporativos, asegurando una ejecución fluida, coherente y memorable.",
+      ],
+    },
     categoria: "corporativo",
-    imagen: "/images/galeria_conferencia.jpg",
+    imagen: "/images/EPYSA-1.jpg",
+    imagenesExtra: ["/images/EPYSA-2.jpg", "/images/EPYSA-3.jpg"],
     span: "tall",
   },
   {
     id: "activacion-brand",
-    titulo: "Activación de Marca",
-    categoria: "marca",
-    imagen: "/images/galeria_activacion_marca.jpg",
-    span: "normal",
+    titulo: "Saesa Innova Stand corporativo",
+    bajada: "Desarrollamos la implementación del stand para nuestro cliente Saesa Innova, creando un espacio moderno, funcional y alineado con su identidad de marca.",
+    descripcion: {
+      intro: "Stand Corporativo – Proyecta Solar 2025",
+      bullets: [
+        "En el marco de Proyecta Solar 2025, organizado por ACESOL, desarrollamos la implementación del stand para nuestro cliente Saesa Innova, creando un espacio moderno, funcional y alineado con su identidad de marca.",
+        "El proyecto se llevó a cabo en Hotel W Santiago, donde diseñamos e instalamos una solución basada en estructura truss con tela PVC tensada, destacando por su versatilidad.",
+        "Nos encargamos de la implementación integral del stand, incluyendo mobiliario, gráficas personalizadas, piso, iluminación LED y soporte audiovisual con pantalla   TV.",
+        "Además, gestionamos el montaje, la supervisión durante el evento y el desmontaje, asegurando una ejecución fluida y sin contratiempos.",
+      ],
+    },
+    categoria: "corporativo",
+    imagen: "/images/SAESA-1.jpg",
+    imagenesExtra: ["/images/SAESA-2.jpg", "/images/SAESA-3.jpg"],
+    span: "small",
   },
   {
     id: "lanzamiento-producto",
-    titulo: "Lanzamiento de Producto",
-    categoria: "marca",
-    imagen: "/images/galeria_lanzamiento.jpg",
+    titulo: "OTIC Conversatorio y charla Talento Pyme",
+    bajada: "Estuvimos a cargo de la producción 360 de la jornada \"Talento Pyme\" en Puerto Montt, una instancia que reunió a más de 80 emprendedores de distintos rubros en el Centro de Vinculación Empormontt.",
+    descripcion: {
+      intro: "Conversatorio y charla Talento Pyme",
+      bullets: [
+        "Estuvimos a cargo de la producción 360 de la jornada “Talento Pyme” en Puerto Montt, una instancia que reunió a más de 80 emprendedores de distintos rubros en el Centro de Vinculación Empormontt.",
+        "El encuentro contó con la participación de Tadashi Takaoka, especialista en innovación, junto a un conversatorio con representantes de pymes locales, generando un espacio de aprendizaje, conexión y crecimiento.",
+        "Para dar vida a esta experiencia, desarrollamos una producción completa que incluyó pantalla LED de gran formato, sistema de audio y tarima, mobiliario, calefacción y un área de acreditación con recepción y desayuno.",
+        "Nos encargamos de cada detalle para asegurar una jornada fluida, cómoda y alineada con los objetivos del evento.",
+      ],
+    },
+    categoria: "corporativo",
+    imagen: "/images/otic-1.jpg",
+    imagenesExtra: ["/images/otic-2.jpg", "/images/otic-3.jpg"],
     span: "tall",
   },
   {
     id: "cocktail-rooftop",
-    titulo: "Cocktail Rooftop",
+    titulo: "Watchguard Lanzamiento \"Endpoint Launch GTD 2026\"",
+    bajada: "Desarrollamos un evento 100% a medida, diseñado para generar una experiencia cercana, dinámica y enfocada en el valor para los asistentes.",
+    descripcion: {
+      intro: "Lanzamiento “Endpoint Launch GTD 2026” – Concepción",
+      bullets: [
+        "Desarrollamos un evento 100% a medida, diseñado para generar una experiencia cercana, dinámica y enfocada en el valor para los asistentes.",
+        "La modalidad table presentation fue el eje central de la jornada, facilitando espacios de conversación uno a uno, orientados a abordar desafíos reales y soluciones en el ámbito de la ciberseguridad.",
+        "Desde la producción 360°, nos encargamos de la implementación integral del evento, incluyendo salón, banquetería, producción técnica, montaje y cada uno de los elementos que dieron vida a esta experiencia.",
+      ],
+    },
     categoria: "corporativo",
-    imagen: "/images/galeria_outdoor_evento.jpg",
+    imagen: "/images/watchguard-3.jpeg",
+    imagenesExtra: ["/images/watchguard-2.jpeg", "/images/watchguard-1.jpeg"],
     span: "wide",
-  },
-  {
-    id: "experiencia-inmersiva",
-    titulo: "Experiencia Inmersiva",
-    categoria: "marca",
-    imagen: "/images/galeria_experiencia_inmersiva.jpg",
-    span: "normal",
-  },
-  {
-    id: "cumbre-ejecutiva",
-    titulo: "Cumbre Ejecutiva",
-    categoria: "corporativo",
-    imagen: "/images/galeria_outdoor_evento.jpg",
-    span: "normal",
-  },
-  {
-    id: "brand-journey",
-    titulo: "Brand Journey",
-    categoria: "marca",
-    imagen: "/images/galeria_activacion_marca.jpg",
-    span: "normal",
   },
 ];
 
@@ -78,11 +119,139 @@ const tabs: { key: Category; label: string }[] = [
   { key: "marca", label: "Experiencia de Marca" },
 ];
 
+/* ── Carrusel interno del modal ────────────────────────────── */
+function ModalCarrusel({ imagenes, titulo }: { imagenes: string[]; titulo: string }) {
+  const [current, setCurrent] = useState(0);
+  const total = imagenes.length;
+
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
+  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
+
+  // Navegación con teclado (flechas)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [prev, next]);
+
+  return (
+    <div className="modal-carrusel">
+      {/* Imagen activa */}
+      <div className="modal-carrusel-track">
+        {imagenes.map((src, i) => (
+          <div
+            key={i}
+            className="modal-carrusel-slide"
+            style={{ transform: `translateX(${(i - current) * 100}%)` }}
+            aria-hidden={i !== current}
+          >
+            {src ? (
+              <img src={src} alt={`${titulo} – imagen ${i + 1}`} className="modal-carrusel-img" />
+            ) : (
+              <div className="modal-carrusel-placeholder">
+                <span>📷</span>
+                <span>Imagen {i + 1}</span>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Controles – solo si hay más de 1 */}
+      {total > 1 && (
+        <>
+          <button className="modal-carrusel-btn modal-carrusel-btn--prev" onClick={prev} aria-label="Imagen anterior">‹</button>
+          <button className="modal-carrusel-btn modal-carrusel-btn--next" onClick={next} aria-label="Imagen siguiente">›</button>
+          {/* Dots */}
+          <div className="modal-carrusel-dots">
+            {imagenes.map((_, i) => (
+              <button
+                key={i}
+                className={`modal-carrusel-dot${i === current ? " modal-carrusel-dot--active" : ""}`}
+                onClick={() => setCurrent(i)}
+                aria-label={`Ir a imagen ${i + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+/* ── Modal ─────────────────────────────────────────────────── */
+function GaleriaModal({ item, onClose }: { item: GaleriaItem; onClose: () => void }) {
+  // Cerrar con Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  // Todas las imágenes del carrusel: principal + extras (o 2 placeholders vacíos)
+  const todasLasImagenes = [
+    item.imagen,
+    ...(item.imagenesExtra ?? ["", ""]),
+  ];
+
+  return (
+    <div
+      className="galeria-modal-backdrop"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={item.titulo}
+    >
+      <div className="galeria-modal" onClick={(e) => e.stopPropagation()}>
+
+        {/* Botón cerrar */}
+        <button className="galeria-modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
+
+        {/* Carrusel – lado izquierdo */}
+        <div className="galeria-modal-img-main">
+          <ModalCarrusel imagenes={todasLasImagenes} titulo={item.titulo} />
+        </div>
+
+        {/* Info – lado derecho */}
+        <div className="galeria-modal-info">
+          <h3 className="galeria-modal-titulo">{item.titulo}</h3>
+
+          {/* Descripción extensa si existe, si no la bajada corta */}
+          {item.descripcion ? (
+            <div className="galeria-modal-descripcion">
+              <p className="galeria-modal-desc-intro">{item.descripcion.intro}</p>
+              <ul className="galeria-modal-bullets">
+                {item.descripcion.bullets.map((b, i) => (
+                  <li key={i} className="galeria-modal-bullet">
+                    <span className="galeria-modal-bullet-check">✔️</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : item.bajada ? (
+            <p className="galeria-modal-bajada">{item.bajada}</p>
+          ) : null}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+/* ── Sección principal ─────────────────────────────────────── */
 export default function GaleriaSection() {
   const [activo, setActivo] = useState<Category>("todos");
+  const [selected, setSelected] = useState<GaleriaItem | null>(null);
 
-  const filtered =
-    activo === "todos" ? items : items.filter((i) => i.categoria === activo);
+  const filtered = activo === "todos" ? items : items.filter((i) => i.categoria === activo);
 
   return (
     <section id="galeria" className="galeria-section">
@@ -92,7 +261,7 @@ export default function GaleriaSection() {
         <div className="galeria-header">
           <div>
             <p className="galeria-label">(Galería)</p>
-            <h2 className="galeria-titulo">Nuestro trabajo</h2>
+            <h2 className="galeria-titulo">Experiencias que hemos creado</h2>
           </div>
 
           {/* Tabs */}
@@ -117,21 +286,33 @@ export default function GaleriaSection() {
             <div
               key={item.id}
               className={`galeria-item galeria-item--${item.span ?? "normal"}`}
+              onClick={() => setSelected(item)}
+              style={{ cursor: "pointer" }}
             >
               <div className="galeria-img-wrap">
                 <img
                   src={item.imagen}
                   alt={item.titulo}
                   className="galeria-img"
+                  width={500}
+                  height={500}
                   loading="lazy"
                 />
+                <div className="galeria-img-overlay" aria-hidden="true">
+                  <span className="galeria-img-overlay-icon">⊕</span>
+                </div>
               </div>
               <p className="galeria-caption">{item.titulo}</p>
+              {item.bajada && <p className="galeria-bajada">{item.bajada}</p>}
             </div>
           ))}
         </div>
 
       </div>
+
+      {selected && (
+        <GaleriaModal item={selected} onClose={() => setSelected(null)} />
+      )}
     </section>
   );
 }

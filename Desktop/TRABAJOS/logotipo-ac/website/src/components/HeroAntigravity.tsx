@@ -29,8 +29,8 @@ export default function HeroAntigravity() {
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 animate-fade-up opacity-0"
           style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
         >
-          Tu visión no tiene límites.<br className="hidden sm:block" />{" "}
-          Nuestro alcance tampoco.
+          Tu evento,<br className="hidden sm:block" />{" "}
+          Nuestro compromiso.
         </h1>
 
         <h2
@@ -46,7 +46,7 @@ export default function HeroAntigravity() {
         >
           <a
             href="#galeria"
-            className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#B8E986] text-black px-8 py-4 text-sm md:text-base font-bold tracking-[0.1em] uppercase hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(184,233,134,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+            className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#CCA43B] text-black px-8 py-4 text-sm md:text-base font-bold tracking-[0.1em] uppercase hover:bg-[#b8912e] hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(204,164,59,0.35)] hover:shadow-[0_0_30px_rgba(204,164,59,0.5)]"
           >
             <span>Ver Galería</span>
             <svg

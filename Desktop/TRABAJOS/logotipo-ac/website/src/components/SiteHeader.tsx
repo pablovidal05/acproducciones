@@ -31,11 +31,8 @@ export default function SiteHeader() {
     >
       <div className="section-wrap grid grid-cols-2 lg:grid-cols-3 h-14 sm:h-16 items-center w-full gap-4">
         <div className="flex justify-start">
-          <a href="#inicio" className="flex items-center gap-2 shrink-0 group">
-            <span className="h-2 w-2 rounded-full bg-[#B8E986] group-hover:scale-125 transition-transform" aria-hidden />
-            <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-white">
-              Alfa
-            </span>
+          <a href="#inicio" className="shrink-0">
+            <img src="/logo/logo-principal-horizontal.svg" alt="Logo Alfa Corporativo" className="h-10 w-auto" />
           </a>
         </div>
 

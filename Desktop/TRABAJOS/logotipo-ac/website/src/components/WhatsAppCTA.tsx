@@ -23,15 +23,14 @@ export default function WhatsAppCTA({
       target={phone ? "_blank" : undefined}
       rel={phone ? "noopener noreferrer" : undefined}
       className={[
-        "inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white text-black",
+        "inline-flex items-center justify-center gap-2 rounded-full border border-[#CCA43B] bg-[#CCA43B] text-black",
         "px-4 py-2 text-sm font-semibold tracking-wide uppercase",
-        "hover:bg-white/90 active:bg-white/80 transition-colors",
+        "hover:bg-[#b8912e] hover:border-[#b8912e] active:bg-[#a07d28] transition-colors",
         className ?? "",
       ].join(" ")}
       aria-label="WhatsApp"
     >
-      <span>WhatsApp</span>
-      <span className="hidden sm:inline">{label}</span>
+      <span>Conversemos por WhatsApp</span>
     </a>
   );
 }

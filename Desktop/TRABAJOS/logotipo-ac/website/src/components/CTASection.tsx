@@ -27,7 +27,7 @@ export default function CTASection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Cotizar ahora
+              Conversemos por WhatsApp
             </a>
           </div>
 
