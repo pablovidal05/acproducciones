@@ -92,7 +92,7 @@ export default function ProcesoSection() {
             >
               <div className="proceso-dot" />
               <h3 className="proceso-nombre">
-                <span className="proceso-num">({etapa.numero})</span>{" "}
+                <span className="proceso-num hidden md:inline">({etapa.numero})</span>{" "}
                 {etapa.nombre}
               </h3>
               <p className="proceso-subtexto">{etapa.subtexto}</p>

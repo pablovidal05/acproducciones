@@ -5,26 +5,27 @@ import React from "react";
 const servicios = [
   {
     id: "eventos-corporativos",
-    emoji: "📅",
     titulo: "Eventos Corporativos",
     descripcion: "Creamos experiencias para conectar equipos y celebrar logros",
     items: [
-      { emoji: "🎉", label: "Celebraciones empresariales" },
-      { emoji: "🚀", label: "Lanzamientos" },
-      { emoji: "🤝", label: "Convenciones" },
-      { emoji: "☕", label: "Reuniones corporativas" },
+      { label: "Celebraciones por años de servicio" },
+      { label: "Lanzamientos" },
+      { label: "Aniversarios empresariales" },
+      { label: "Fiestas empresariales" },
+      { label: "Experiencias corporativas personalizadas" },
+      { label: "Coffees, desayunos, almuerzos, cocteles, cenas" },
     ],
     href: "#galeria",
   },
   {
-    id: "experiencias-de-marca",
-    emoji: "📣",
-    titulo: "Experiencias de Marca",
+    id: "activaciones-de-marca",
+    titulo: "Activaciones de Marca",
     descripcion: "Activamos tu marca con impacto real",
     items: [
-      { emoji: "🔥", label: "Activaciones y promotores" },
-      { emoji: "🖥️", label: "Stands personalizados" },
-      { emoji: "🎯", label: "Experiencias corporativas" },
+      { label: "Promotores / staff / BTL" },
+      { label: "Construcción e implementación de stand" },
+      { label: "Activaciones en punto de venta" },
+      { label: "Experiencias interactivas" },
     ],
     href: "#galeria",
   },
@@ -56,8 +57,8 @@ export default function ServiciosSection() {
               {/* Lista de items */}
               <ul className="servicios-card-list">
                 {s.items.map((item) => (
-                  <li key={item.label} className="servicios-card-list-item">
-                    <span aria-hidden="true">{item.emoji}</span>
+                  <li key={item.label} className="servicios-card-list-item flex items-start gap-2">
+                    <span aria-hidden="true" className="text-[#CCA43B] font-bold mt-0.5">•</span>
                     <span>{item.label}</span>
                   </li>
                 ))}

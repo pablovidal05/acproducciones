@@ -30,7 +30,7 @@ export default function HeroAntigravity() {
           style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
         >
           Tu evento,<br className="hidden sm:block" />{" "}
-          Nuestro compromiso.
+          nuestro compromiso.
         </h1>
 
         <h2
@@ -40,7 +40,7 @@ export default function HeroAntigravity() {
           Producción de eventos 360 con cobertura total. Movemos nuestra capacidad creativa y técnica al destino que elijas para crear experiencias corporativas inolvidables.
         </h2>
 
-        <div
+        {/*<div
           className="animate-fade-up opacity-0"
           style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}
         >
@@ -48,7 +48,7 @@ export default function HeroAntigravity() {
             href="#galeria"
             className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#CCA43B] text-black px-8 py-4 text-sm md:text-base font-bold tracking-[0.1em] uppercase hover:bg-[#b8912e] hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(204,164,59,0.35)] hover:shadow-[0_0_30px_rgba(204,164,59,0.5)]"
           >
-            <span>Ver Galería</span>
+            { <span>Ver Galería</span> }
             <svg
               className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -59,7 +59,8 @@ export default function HeroAntigravity() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
-        </div>
+        </div>  
+        */}
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ interface GaleriaItem {
 
 const items: GaleriaItem[] = [
   {
-    id: "gala-2024",
+    id: "cpt",
     titulo: "CPT Ceremonia años de servicio",
     bajada: "Ceremonia de reconocimiento a los colaboradores de CPT, una noche de gala que celebró años de servicio, trayectoria y logros dentro de la compañía.",
     descripcion: {
@@ -71,9 +71,9 @@ const items: GaleriaItem[] = [
         "Además, gestionamos el montaje, la supervisión durante el evento y el desmontaje, asegurando una ejecución fluida y sin contratiempos.",
       ],
     },
-    categoria: "corporativo",
-    imagen: "/images/SAESA-1.jpg",
-    imagenesExtra: ["/images/SAESA-2.jpg", "/images/SAESA-3.jpg"],
+    categoria: "marca",
+    imagen: "/images/SAESA-2.jpg",
+    imagenesExtra: ["/images/SAESA-1.jpg", "/images/SAESA-3.jpg"],
     span: "small",
   },
   {
@@ -90,8 +90,8 @@ const items: GaleriaItem[] = [
       ],
     },
     categoria: "corporativo",
-    imagen: "/images/otic-1.jpg",
-    imagenesExtra: ["/images/otic-2.jpg", "/images/otic-3.jpg"],
+    imagen: "/images/otic-3.jpg",
+    imagenesExtra: ["/images/otic-2.jpg", "/images/otic-1.jpg"],
     span: "tall",
   },
   {
@@ -109,6 +109,73 @@ const items: GaleriaItem[] = [
     categoria: "corporativo",
     imagen: "/images/watchguard-3.jpeg",
     imagenesExtra: ["/images/watchguard-2.jpeg", "/images/watchguard-1.jpeg"],
+    span: "wide",
+  },
+  {
+    id: "salcobrand",
+    titulo: "Salcobrand",
+    bajada: "Activación de Marca – Solares Salcobrand",
+    descripcion: {
+      intro: "Activación de Marca – Solares Salcobrand",
+      bullets: [
+        "Implementamos una experiencia de marca en playas de La Serena, enfocada en el cuidado de la piel y la conexión directa con el público.",
+        "La activación incluyó un espacio de dermocoaching y una propuesta diseñada para generar cercanía, interacción y recordación de marca.",
+      ],
+    },
+    categoria: "marca",
+    imagen: "/images/salco-1.jpeg",
+    imagenesExtra: ["/images/salco-2.jpeg", "/images/salco-3.jpeg"],
+    span: "small",
+  },
+  {
+    id: "otic-activaciones",
+    titulo: "OTIC",
+    bajada: "Activaciones de Stands – OTIC",
+    descripcion: {
+      intro: "Activaciones de Stands – OTIC",
+      bullets: [
+        "Desarrollamos distintas activaciones para OTIC en el sur de Chile, implementando experiencias enfocadas en la interacción, captación de datos y visibilidad de marca.",
+        "En el “Día Social de la Construcción” en Temuco, ejecutamos un módulo de atención con anfitrionía, orientado a la vinculación directa con el público, incluyendo captación de datos y entrega de merchandising.",
+        "Por otra parte, en ENASUM en Puerto Varas, desarrollamos la implementación de stand incorporando soluciones interactivas y elementos de alto impacto, como péndon LED, tótem touch y ruleta digital, potenciando la participación activa de los asistentes."
+      ],
+    },
+    categoria: "marca",
+    imagen: "/images/otic-2-1.jpg",
+    imagenesExtra: ["/images/otic-2-2.jpg", "/images/otic-2-3.jpg"],
+    span: "tall",
+  },
+  {
+    id: "salcobrand-teleton",
+    titulo: "SALCOBRAND",
+    bajada: "Gira Salcobrand / Teletón 2025",
+    descripcion: {
+      intro: "Gira Salcobrand / Teletón 2025",
+      bullets: [
+        "Acompañamos a Salcobrand, la farmacia de la Teletón, en el desarrollo de una gira nacional enfocada en generar conexión, motivación y sentido de propósito.",
+        "La experiencia se desplegó en distintas ciudades del país, llevando una propuesta consistente y alineada con los valores de la marca en cada jornada.",
+        "Ciudades: Antofagasta · Copiapó · La Serena · Puerto Montt · Osorno · Temuco · Concepción · Talcahuano"
+      ],
+    },
+    categoria: "marca",
+    imagen: "/images/tele-1.jpg",
+    imagenesExtra: ["/images/tele-2.jpg", "/images/tele-3.jpg"],
+    span: "tall",
+  },
+  {
+    id: "regata-chiloe",
+    titulo: "Producción de Marca – Regata de Chiloé 2026",
+    bajada: "Trabajamos junto a GYT Experiences en la producción para la marca Amarco, main sponsor de la Regata de Chiloé 2026.",
+    descripcion: {
+      intro: "Producción de Marca – Regata de Chiloé 2026",
+      bullets: [
+        "Trabajamos junto a GYT Experiences en la producción para la marca Amarco, main sponsor de la Regata de Chiloé 2026, uno de los eventos náuticos más relevantes del país.",
+        "Nos involucramos como aliados estratégicos en terreno, aportando soluciones concretas y adaptándonos a las necesidades del proyecto, sin importar la ubicación o los desafíos operativos.",
+        "Nuestro enfoque se centra en agregar valor en cada instancia, asegurando una ejecución eficiente, coherente y alineada con los objetivos de la marca."
+      ],
+    },
+    categoria: "marca",
+    imagen: "/images/regata-3.jpeg",
+    imagenesExtra: ["/images/regata-2.mp4", "/images/regata-1.jpeg"],
     span: "wide",
   },
 ];
@@ -149,7 +216,11 @@ function ModalCarrusel({ imagenes, titulo }: { imagenes: string[]; titulo: strin
             aria-hidden={i !== current}
           >
             {src ? (
-              <img src={src} alt={`${titulo} – imagen ${i + 1}`} className="modal-carrusel-img" />
+              src.endsWith(".mp4") || src.endsWith(".webm") ? (
+                <video src={src} className="modal-carrusel-img" autoPlay muted loop playsInline />
+              ) : (
+                <img src={src} alt={`${titulo} – imagen ${i + 1}`} className="modal-carrusel-img" />
+              )
             ) : (
               <div className="modal-carrusel-placeholder">
                 <span>📷</span>
@@ -290,14 +361,25 @@ export default function GaleriaSection() {
               style={{ cursor: "pointer" }}
             >
               <div className="galeria-img-wrap">
-                <img
-                  src={item.imagen}
-                  alt={item.titulo}
-                  className="galeria-img"
-                  width={500}
-                  height={500}
-                  loading="lazy"
-                />
+                {item.imagen.endsWith(".mp4") || item.imagen.endsWith(".webm") ? (
+                  <video
+                    src={item.imagen}
+                    className="galeria-img object-cover h-full w-full"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={item.imagen}
+                    alt={item.titulo}
+                    className="galeria-img"
+                    width={500}
+                    height={500}
+                    loading="lazy"
+                  />
+                )}
                 <div className="galeria-img-overlay" aria-hidden="true">
                   <span className="galeria-img-overlay-icon">⊕</span>
                 </div>
