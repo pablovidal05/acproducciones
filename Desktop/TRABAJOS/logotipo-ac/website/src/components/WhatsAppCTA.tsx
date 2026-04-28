@@ -7,7 +7,7 @@ export default function WhatsAppCTA({
   className?: string;
   label?: string;
 }) {
-  const phoneRaw = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? "";
+  const phoneRaw = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? "+56990365286";
   const phone = phoneRaw.replace(/\D/g, "");
   const initialText =
     process.env.NEXT_PUBLIC_WHATSAPP_TEXT ??
@@ -30,7 +30,7 @@ export default function WhatsAppCTA({
       ].join(" ")}
       aria-label="WhatsApp"
     >
-      <span>Conversemos por WhatsApp</span>
+      <span>{label}</span>
     </a>
   );
 }

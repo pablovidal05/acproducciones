@@ -5,9 +5,9 @@ import WhatsAppCTA from "@/components/WhatsAppCTA";
 
 const nav = [
   { href: "#que-hacemos", label: "Servicios" },
-  { href: "#como-trabajamos", label: "Cómo trabajamos" },
-  { href: "#eventos", label: "Eventos" },
-  { href: "#contactanos", label: "Contactanos" },
+  { href: "#proceso", label: "Cómo trabajamos" },
+  { href: "#galeria", label: "Eventos" },
+  { href: "#contacto", label: "Contactanos" },
 ];
 
 export default function SiteHeader() {
@@ -32,7 +32,7 @@ export default function SiteHeader() {
       <div className="section-wrap grid grid-cols-2 lg:grid-cols-3 h-14 sm:h-16 items-center w-full gap-4">
         <div className="flex justify-start">
           <a href="#inicio" className="shrink-0">
-            <img src="/logo/logo-principal-horizontal.svg" alt="Logo Alfa Corporativo" className="h-20 w-auto" />
+            <img src="/logo/logo-principal-horizontal.svg" alt="Logo Alfa Corporativo" className="h-12 sm:h-20 w-auto" />
           </a>
         </div>
 
@@ -49,7 +49,7 @@ export default function SiteHeader() {
         </nav>
 
         <div className="flex justify-end items-center gap-2 sm:gap-3 shrink-0">
-          <WhatsAppCTA className="!px-3 !py-2 text-[10px] sm:text-xs" label="WhatsApp" />
+          <WhatsAppCTA className="!px-2 !py-1.5 text-[8px] sm:text-xs whitespace-nowrap" label="Conversemos por WhatsApp" />
         </div>
       </div>
     </header>

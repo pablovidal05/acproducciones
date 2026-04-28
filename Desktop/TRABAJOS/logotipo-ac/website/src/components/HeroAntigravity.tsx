@@ -16,7 +16,7 @@ export default function HeroAntigravity() {
           loop
           playsInline
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          <source src="/videos/hero-bg.webm" type="video/webm" />
         </video>
         {/* Dark Overlay - semitransparente oscuro para asegurar legibilidad */}
         <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none" />

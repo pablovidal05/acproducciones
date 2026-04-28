@@ -178,6 +178,22 @@ const items: GaleriaItem[] = [
     imagenesExtra: ["/images/regata-2.mp4", "/images/regata-1.jpeg"],
     span: "wide",
   },
+  {
+    id: "eurofarma",
+    titulo: "Eurofarma",
+    bajada: "Experiencia Gastronómica & Cata de Vinos",
+    descripcion: {
+      intro: "Experiencia Gastronómica & Cata de Vinos",
+      bullets: [
+        "Creamos una experiencia que combinó gastronomía, vino y tradición en un entorno campestre de alto nivel.",
+        "La jornada incluyó bocados gourmet, cata guiada por sommelier y una exhibición en vivo del caballo chileno, logrando una propuesta elegante, auténtica y memorable."
+      ],
+    },
+    categoria: "corporativo",
+    imagen: "/images/euro-1.jpeg",
+    imagenesExtra: ["/images/euro-2.jpeg", "/images/euro-3.jpeg"],
+    span: "normal",
+  },
 ];
 
 const tabs: { key: Category; label: string }[] = [
@@ -332,7 +348,7 @@ export default function GaleriaSection() {
         <div className="galeria-header">
           <div>
             <p className="galeria-label">(Galería)</p>
-            <h2 className="galeria-titulo">Experiencias que hemos creado</h2>
+            <h2 className="galeria-titulo">Algunas experiencias que hemos creado</h2>
           </div>
 
           {/* Tabs */}
@@ -360,11 +376,11 @@ export default function GaleriaSection() {
               onClick={() => setSelected(item)}
               style={{ cursor: "pointer" }}
             >
-              <div className="galeria-img-wrap">
+              <div className="galeria-img-wrap absolute inset-0 w-full h-full z-0 m-0 p-0">
                 {item.imagen.endsWith(".mp4") || item.imagen.endsWith(".webm") ? (
                   <video
                     src={item.imagen}
-                    className="galeria-img object-cover h-full w-full"
+                    className="galeria-img object-cover h-full w-full absolute inset-0"
                     autoPlay
                     muted
                     loop
@@ -374,18 +390,20 @@ export default function GaleriaSection() {
                   <img
                     src={item.imagen}
                     alt={item.titulo}
-                    className="galeria-img"
+                    className="galeria-img object-cover h-full w-full absolute inset-0"
                     width={500}
                     height={500}
                     loading="lazy"
                   />
                 )}
-                <div className="galeria-img-overlay" aria-hidden="true">
+                <div className="galeria-img-overlay absolute inset-0 z-10 hidden md:flex" aria-hidden="true">
                   <span className="galeria-img-overlay-icon">⊕</span>
                 </div>
               </div>
-              <p className="galeria-caption">{item.titulo}</p>
-              {item.bajada && <p className="galeria-bajada">{item.bajada}</p>}
+              <div className="relative z-20 mt-auto flex flex-col justify-end pointer-events-none">
+                <p className="galeria-caption pointer-events-auto">{item.titulo}</p>
+                {item.bajada && <p className="galeria-bajada pointer-events-auto">{item.bajada}</p>}
+              </div>
             </div>
           ))}
         </div>

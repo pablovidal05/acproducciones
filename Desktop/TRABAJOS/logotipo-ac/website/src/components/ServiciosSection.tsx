@@ -65,9 +65,9 @@ export default function ServiciosSection() {
               </ul>
 
               {/* CTA */}
-              <a href={s.href} className="servicios-card-btn">
+              {/* <a href={s.href} className="servicios-card-btn">
                 Ver más
-              </a>
+              </a> */}
 
             </div>
           ))}

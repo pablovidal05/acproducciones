@@ -21,7 +21,7 @@ export default function CTASection() {
               Desde la idea hasta el último detalle. Nos movemos a donde tú necesites y ponemos toda nuestra capacidad creativa y técnica al servicio de tu próxima experiencia corporativa.
             </p>
             <a
-              href="https://wa.me/"
+              href="https://wa.me/56990365286"
               className="cta-btn"
               id="cta-whatsapp-btn"
               target="_blank"
@@ -34,7 +34,7 @@ export default function CTASection() {
           {/* Right: image */}
           <div className="cta-img-wrap">
             <img
-              src="/images/cta-evento.jpg"
+              src="/images/cta-evento.jpeg"
               alt="Producción de eventos corporativos premium"
               className="cta-img"
             />

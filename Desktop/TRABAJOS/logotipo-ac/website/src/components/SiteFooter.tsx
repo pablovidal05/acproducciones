@@ -1,17 +1,45 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 export default function SiteFooter() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("caro@acproducciones.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <footer className="footer">
       <div className="footer-inner">
 
         {/* Left: logo */}
         <div className="footer-logo">
-          <img src="/logo/logo-principal-horizontal.svg" alt="Logo Alfa Corporativo" className="h-10 w-auto" />
+          <img src="/logo/logo-principal-horizontal.svg" alt="Logo Alfa Corporativo" className="h-14 md:h-16 lg:h-20 w-auto" />
         </div>
 
-        {/* Center: company name */}
-        <p className="footer-name">Alfa Corporativo</p>
+        {/* Center: company name & email */}
+        <div className="flex flex-col items-center gap-1">
+          <p className="footer-name">Alfa Corporativo</p>
+          <button 
+            onClick={handleCopy}
+            className="text-xs text-[#CCA43B] hover:text-[#b8912e] transition-colors flex items-center gap-1.5 mt-1"
+            aria-label="Copiar correo"
+          >
+            {copied ? (
+              <span className="text-green-500 font-semibold">¡Copiado!</span>
+            ) : (
+              <>
+                <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                caro@acproducciones.com
+              </>
+            )}
+          </button>
+        </div>
 
         {/* Right: social icons */}
         <div className="footer-socials">
@@ -31,7 +59,7 @@ export default function SiteFooter() {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/"
+            href="https://wa.me/56990365286"
             id="footer-whatsapp"
             className="footer-social-link"
             target="_blank"
