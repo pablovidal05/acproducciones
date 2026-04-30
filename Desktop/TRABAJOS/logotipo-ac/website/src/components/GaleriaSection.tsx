@@ -374,13 +374,12 @@ export default function GaleriaSection() {
               key={item.id}
               className={`galeria-item galeria-item--${item.span ?? "normal"}`}
               onClick={() => setSelected(item)}
-              style={{ cursor: "pointer" }}
             >
-              <div className="galeria-img-wrap absolute inset-0 w-full h-full z-0 m-0 p-0">
+              <div className="galeria-img-wrap">
                 {item.imagen.endsWith(".mp4") || item.imagen.endsWith(".webm") ? (
                   <video
                     src={item.imagen}
-                    className="galeria-img object-cover h-full w-full absolute inset-0"
+                    className="galeria-img"
                     autoPlay
                     muted
                     loop
@@ -390,20 +389,18 @@ export default function GaleriaSection() {
                   <img
                     src={item.imagen}
                     alt={item.titulo}
-                    className="galeria-img object-cover h-full w-full absolute inset-0"
+                    className="galeria-img"
                     width={500}
                     height={500}
                     loading="lazy"
                   />
                 )}
-                <div className="galeria-img-overlay absolute inset-0 z-10 hidden md:flex" aria-hidden="true">
+                <div className="galeria-img-overlay" aria-hidden="true">
                   <span className="galeria-img-overlay-icon">⊕</span>
                 </div>
               </div>
-              <div className="relative z-20 mt-auto flex flex-col justify-end pointer-events-none">
-                <p className="galeria-caption pointer-events-auto">{item.titulo}</p>
-                {item.bajada && <p className="galeria-bajada pointer-events-auto">{item.bajada}</p>}
-              </div>
+              <p className="galeria-caption">{item.titulo}</p>
+              {item.bajada && <p className="galeria-bajada">{item.bajada}</p>}
             </div>
           ))}
         </div>
