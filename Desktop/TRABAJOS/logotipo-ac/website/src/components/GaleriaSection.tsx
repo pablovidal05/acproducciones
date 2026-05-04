@@ -56,7 +56,7 @@ const items: GaleriaItem[] = [
     categoria: "corporativo",
     imagen: "/images/EPYSA-1.jpg",
     imagenesExtra: ["/images/EPYSA-2.jpg", "/images/EPYSA-3.jpg"],
-    span: "tall",
+    span: "normal",
   },
   {
     id: "activacion-brand",
@@ -74,7 +74,7 @@ const items: GaleriaItem[] = [
     categoria: "marca",
     imagen: "/images/SAESA-2.jpg",
     imagenesExtra: ["/images/SAESA-1.jpg", "/images/SAESA-3.jpg"],
-    span: "small",
+    span: "normal",
   },
   {
     id: "lanzamiento-producto",
@@ -92,7 +92,7 @@ const items: GaleriaItem[] = [
     categoria: "corporativo",
     imagen: "/images/otic-3.jpg",
     imagenesExtra: ["/images/otic-2.jpg", "/images/otic-1.jpg"],
-    span: "tall",
+    span: "normal",
   },
   {
     id: "cocktail-rooftop",
@@ -109,7 +109,7 @@ const items: GaleriaItem[] = [
     categoria: "corporativo",
     imagen: "/images/watchguard-3.jpeg",
     imagenesExtra: ["/images/watchguard-2.jpeg", "/images/watchguard-1.jpeg"],
-    span: "wide",
+    span: "normal",
   },
   {
     id: "salcobrand",
@@ -125,7 +125,7 @@ const items: GaleriaItem[] = [
     categoria: "marca",
     imagen: "/images/salco-1.jpeg",
     imagenesExtra: ["/images/salco-2.jpeg", "/images/salco-3.jpeg"],
-    span: "small",
+    span: "normal",
   },
   {
     id: "otic-activaciones",
@@ -142,7 +142,7 @@ const items: GaleriaItem[] = [
     categoria: "marca",
     imagen: "/images/otic-2-1.jpg",
     imagenesExtra: ["/images/otic-2-2.jpg", "/images/otic-2-3.jpg"],
-    span: "tall",
+    span: "normal",
   },
   {
     id: "salcobrand-teleton",
@@ -159,7 +159,7 @@ const items: GaleriaItem[] = [
     categoria: "marca",
     imagen: "/images/tele-1.jpg",
     imagenesExtra: ["/images/tele-2.jpg", "/images/tele-3.jpg"],
-    span: "tall",
+    span: "normal",
   },
   {
     id: "regata-chiloe",
@@ -176,7 +176,7 @@ const items: GaleriaItem[] = [
     categoria: "marca",
     imagen: "/images/regata-3.jpeg",
     imagenesExtra: ["/images/regata-2.mp4", "/images/regata-1.jpeg"],
-    span: "wide",
+    span: "normal",
   },
   {
     id: "eurofarma",
