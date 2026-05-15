@@ -194,6 +194,24 @@ const items: GaleriaItem[] = [
     imagenesExtra: ["/images/euro-2.jpeg", "/images/euro-3.jpeg"],
     span: "normal",
   },
+  {
+    id: "kidd-voodoo",
+    titulo: "Producción Backstage – Concierto en Vivo",
+    bajada: "Participamos en la producción backstage del concierto de Kidd Voodoo en el Estadio Chinquihue, marcando un hito al ser la primera vez que este recinto se abre para un evento de esta magnitud.",
+    descripcion: {
+      intro: "Producción Backstage – Concierto en Vivo",
+      bullets: [
+        "Participamos en la producción backstage del concierto de Kidd Voodoo en el Estadio Chinquihue, marcando un hito al ser la primera vez que este recinto se abre para un evento de esta magnitud.",
+        "Estuvimos a cargo de la implementación completa de 17 camarines destinados a artistas, staff, bailarines y equipo de producción de Bizarro, desarrollando cada espacio desde cero.",
+        "Nuestro trabajo consideró la habilitación integral de los camarines, asegurando funcionalidad, comodidad y estándar técnico acorde a las exigencias de un evento de alto nivel.",
+        "La ejecución en terreno requirió coordinación precisa, capacidad de adaptación y atención al detalle, garantizando un backstage operativo, ordenado y preparado para responder a las necesidades de todos los equipos involucrados.",
+      ],
+    },
+    categoria: "corporativo",
+    imagen: "/images/kid-1.webm",
+    imagenesExtra: [],
+    span: "normal",
+  },
 ];
 
 const tabs: { key: Category; label: string }[] = [
